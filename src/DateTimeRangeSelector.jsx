@@ -14,14 +14,16 @@ function DateTimeRangeSelector({value, onChange}) {
     };
 
     const [range, setRange] = useState('relative')
+    const absDateTimeRange = value ? `From ${value[0]} to ${value[1]}` : ''
+    const relDateTimeRange = value ? `Last ${value[0]}` : ''
 
     return (
         <Box>
             <Typography
-                sx={{width: 60, bgcolor: 'red'}}
+                className={'dateTimeRangeLabel'}
                 onClick={(e) => handleClick(e)}
             >
-                {value}
+                {range === 'relative' ? relDateTimeRange : absDateTimeRange}
             </Typography>
             <Menu
                 id="basic-menu"
@@ -40,7 +42,7 @@ function DateTimeRangeSelector({value, onChange}) {
                         Absolute range
                     </Button>
 
-                    {range === 'relative' && <Relative value={value} onChange={onChange}/>}
+                    {/*{range === 'relative' && <Relative value={value} onChange={onChange}/>}*/}
                     {range === 'absolute' && <Absolute value={value} onChange={onChange}/>}
 
                     <hr/>

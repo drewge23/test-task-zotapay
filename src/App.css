@@ -37,6 +37,9 @@ summary,
     flex-direction: column;
 }
 
-input[type=checkbox] {
-
+.dateTimeRangeLabel {
+    height: 60px;
+    width: 300px;
+    background-color: lightcyan;
+    border: 1px solid black;
 }

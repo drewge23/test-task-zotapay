@@ -3,7 +3,7 @@ import DateTimeRangeSelector from "./DateTimeRangeSelector";
 import {useState} from "react";
 
 function App() {
-    const [value, onChange] = useState([null])
+    const [value, onChange] = useState([new Date(), new Date()])
 
     return (
         <div className="App">
