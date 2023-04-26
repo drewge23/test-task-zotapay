@@ -1,25 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import DateTimeRangeSelector from "./DateTimeRangeSelector";
+import {useState} from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [value, onChange] = useState([null])
+
+    return (
+        <div className="App">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto corporis dignissimos dolorum id
+                impedit in incidunt ipsam ipsum itaque laudantium odit porro quae quidem, quis reprehenderit sit ullam
+                voluptas voluptate.</p>
+            <DateTimeRangeSelector value={value} onChange={onChange}/>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto corporis dignissimos dolorum id
+                impedit in incidunt ipsam ipsum itaque laudantium odit porro quae quidem, quis reprehenderit sit ullam
+                voluptas voluptate.</p>
+        </div>
+    );
 }
 
 export default App;
