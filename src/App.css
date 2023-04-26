@@ -35,11 +35,47 @@ summary,
 .rangesContainer {
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
-
+.menu {
+    padding: 10px;
+}
 .dateTimeRangeLabel {
-    height: 60px;
-    width: 300px;
-    background-color: lightcyan;
-    border: 1px solid black;
+    padding: 5px;
+    border: 1px solid gray;
+}
+button {
+    color: black !important;
+}
+.buttons {
+    display: flex;
+}
+.outlinedBtn {
+    padding: 5px 10px;
+    border-radius: 1px;
+    border: 1px solid gray !important;
+}
+.calendars {
+    display: flex;
+    flex-wrap: wrap;
+}
+.footerBtns {
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.cancelApply {
+    display: flex;
+    gap: 20px;
+}
+.absDateTime {
+    display: flex;
+}
+.relCanvas {
+    padding: 10px;
+}
+.relLine {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }

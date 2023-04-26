@@ -12,9 +12,8 @@ function Absolute({value, onChange}) {
     const [finishDate, setFinishDate] = useState(value ? dayjs(value[1]) : null)
 
     useEffect(() => {
-        console.log(startDate)
         if (!startDate || !finishDate) return
-        onChange([startDate, finishDate])
+        onChange([startDate.toDate(), finishDate.toDate()])
     }, [startDate, finishDate])
 
     const startHandleChange = (newValue) => {
@@ -41,22 +40,40 @@ function Absolute({value, onChange}) {
     return (
         <Box>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DateCalendar
-                    value={startDate}
-                    onChange={newValue => startHandleChange(newValue)}
-                    disableFuture
-                />
-                <DateCalendar
-                    value={finishDate}
-                    onChange={newValue => finishHandleChange(newValue)}
-                    disableFuture
-                />
-                <DateField value={startDate}
-                           onChange={newValue => startHandleChange(newValue)}
-                />
-                <TimeField value={startDate} onChange={(newValue) => setStartDate(newValue)}/>
-                <DateField value={finishDate} onChange={(newValue) => setFinishDate(newValue)}/>
-                <TimeField value={startDate} onChange={(newValue) => setStartDate(newValue)}/>
+                <Box className={'calendars'}>
+                    <DateCalendar
+                        value={startDate}
+                        onChange={newValue => startHandleChange(newValue)}
+                        disableFuture
+                    />
+                    <DateCalendar
+                        value={finishDate}
+                        onChange={newValue => finishHandleChange(newValue)}
+                        disableFuture
+                    />
+                </Box>
+                <Box className={'absDateTime'}>
+                    <DateField
+                        label={'From'}
+                        value={startDate}
+                        onChange={newValue => startHandleChange(newValue)}
+                    />
+                    <TimeField
+                        label={'Time'}
+                        value={startDate}
+                        onChange={(newValue) => setStartDate(newValue)}
+                    />
+                    <DateField
+                        label={'To'}
+                        value={finishDate}
+                        onChange={(newValue) => setFinishDate(newValue)}
+                    />
+                    <TimeField
+                        label={'Time'}
+                        value={finishDate}
+                        onChange={(newValue) => setFinishDate(newValue)}
+                    />
+                </Box>
             </LocalizationProvider>
         </Box>
     );

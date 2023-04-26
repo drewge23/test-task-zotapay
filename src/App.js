@@ -1,9 +1,14 @@
 import './App.css';
 import DateTimeRangeSelector from "./DateTimeRangeSelector";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import dayjs from "dayjs";
 
 function App() {
     const [value, onChange] = useState([new Date(), new Date()])
+
+    useEffect(() => {
+        console.log(value)
+    }, [value])
 
     return (
         <div className="App">
